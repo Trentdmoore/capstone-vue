@@ -5,9 +5,14 @@
         <v-app-bar :elevation="2" :color="'blue-darken-4'">
             <template v-slot:prepend>
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-app-bar-title class="mx-auto">Application Bar</v-app-bar-title>
             </template>
 
-            <v-app-bar-title>Application Bar</v-app-bar-title>
+            <v-spacer></v-spacer>
+
+            <v-btn @click="GetTestingInfo()">Test API Call</v-btn>
+
+            
         </v-app-bar>
     </div>
 
@@ -76,6 +81,8 @@
 </template>
 
 <script>
+    import {personApi} from '../service/person.api.js'
+
     export default {
         data() {
             return {
@@ -98,8 +105,8 @@
             }
         },
         methods: {
-            name() {
-                
+            GetTestingInfo() {
+                personApi.getTestingInfo();
             }
         },
     }
